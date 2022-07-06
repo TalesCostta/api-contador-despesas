@@ -20,10 +20,6 @@ module.exports = {
                 options: { min: 4 }
             },
             errorMessage: 'Senha precisa de pelo menos 4 caracteres'
-        },
-        state: {
-            notEmpty: true,
-            errorMessage: 'Estado nao preenchido'
         }
     }),
 

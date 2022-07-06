@@ -1,11 +1,6 @@
 const mongoose = require('mongoose');
 
 const logSchema = new mongoose.Schema({
-    user:{
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'account',
-        require: true
-    },
     title:{
         type: String,
         require: true
@@ -16,10 +11,6 @@ const logSchema = new mongoose.Schema({
     },
     value:{
         type: Number,
-        require: true
-    },
-    mode:{
-        type: Boolean,
         require: true
     },
     createdAt: {

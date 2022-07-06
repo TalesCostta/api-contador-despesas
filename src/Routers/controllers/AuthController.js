@@ -57,21 +57,6 @@ module.exports = {
             });
             return;
         }
-
-        if (mongoose.Types.ObjectId.isValid(data.state)) {
-            const stateItem = await State.findById(data.state);
-            if (!stateItem) {
-                res.json({
-                    error: { state: { msg: 'Este estado nao existe' } }
-                });
-                return;
-            }
-        } else {
-            res.json({
-                error: { state: { msg: 'Codigo de estado nao existe' } }
-            });
-            return;
-        }
         //Gravar no banco 
         const passwordHash = await bcrypt.hash(data.password, 10);
         //hash aleatorio
@@ -82,13 +67,10 @@ module.exports = {
             name: data.name,
             email: data.email,
             passwordHash,
-            token,
-            state: data.state
+            token
         });
 
         await newUser.save();
-
-
         res.json({ token });
 
 
